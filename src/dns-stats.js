@@ -22,9 +22,26 @@ const { NotImplementedError } = require('../extensions/index.js');
  * }
  *
  */
-function getDNSStats(/* domains */) {
-  throw new NotImplementedError('Not implemented');
+function getDNSStats(domains) {
+  //throw new NotImplementedError('Not implemented');
   // remove line with error and write your code here
+  a = ['code.yandex.ru', 'music.yandex.ru', 'yandex.ru']
+  let first,telo,last = ''
+  let arr =[]
+  let arr2 =[]
+  for(i=0;i<a.length;i++){
+   arr.push(a[i].split('.'))
+    }
+  
+  arr = arr.flat()
+  //arr2 = arr.sort()
+  //let obj = Object.assign({}, arr2);
+  
+  console.log(arr)
+  //console.log(arr2)
+  //console.log(obj)
+
+
 }
 
 module.exports = {

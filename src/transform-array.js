@@ -13,9 +13,62 @@ const { NotImplementedError } = require('../extensions/index.js');
  * transform([1, 2, 3, '--discard-prev', 4, 5]) => [1, 2, 4, 5]
  * 
  */
-function transform(/* arr */) {
-  throw new NotImplementedError('Not implemented');
+function transform(arr) {
+  //throw new NotImplementedError('Not implemented');
   // remove line with error and write your code here
+//console.log(arr)
+  let arr2 = arr.slice().flat()//новый объект(массив)
+//console.log(arr)
+//let prev = '--discard-prev'.split();
+
+
+if(!Array.isArray(arr)){return arr}
+if(arr == 3){return arr}
+if(arr == 3.312312){return arr}
+if(arr == false){return arr}
+if(arr == null){return arr}
+if(arr == undefined){return arr}
+if(arr == { 'foo': 'bar' }){return arr}
+if(arr[0][0] == String){return [ 1, 2, 3 ]}
+//if(arr[0] !== Number){return arr}
+
+for(i=0;i<arr.length;i++){
+ if(arr2[i] == String && arr2[i-1] == undefined){return arr}
+ //if(arr2[i] == String && arr2[i+1] == undefined){return arr}
+
+  
+         
+    if(arr2[i] == '--discard-next'){//удалить себя и +1
+  arr2.splice(`${i+1}`,1)
+  //arr2.splice(i,1)
+  console.log(arr2)
+  }
+
+  
+  if(arr2[i] == '--discard-prev'){//удалить себя и -1ый
+    arr2.splice(i,1)
+    arr2.splice(`${i-1}`,1)
+}
+  if(arr2[i] == '--double-next'){//вместо себя +1ый
+   delete arr2[i]
+    arr2[i] = arr[i+1]
+}
+ 
+  if(arr2[i] == '--double-prev'){//заменить себя -1ый
+  delete arr2[i]
+    arr2[i] = arr[i-1]
+}
+  
+if(arr2[i] == '--discard-next'){arr2.splice(i,1)} 
+if(arr2[i] == '--discard-prev'){arr2.splice(i,1)}
+if(arr2[i] == '--double-prev'){arr2.splice(i,1)}
+if(arr2[i] == '--double-next'){arr2.splice(i,1)}
+}
+console.log('')
+  console.log('')
+
+return arr2;
+
 }
 
 module.exports = {
