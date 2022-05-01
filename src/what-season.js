@@ -14,15 +14,20 @@ const { NotImplementedError } = require('../extensions/index.js');
 function getSeason(date) {
   //throw new NotImplementedError('Not implemented');
   // remove line with error and write your code here
-date1 = new Date(date)
+//if(date === undefined ){return 'Unable to determine the time of year!'}
+// if(typeof(date) !== 'Object'){throw new Error('Invalid date!')}
+ //if (Object.getOwnPropertyNames(date).length !== 0) throw new Error('Invalid date!')
+ if (arguments.length === 0) return 'Unable to determine the time of year!'
+ if (typeof date !== 'object' || Object.getOwnPropertyNames(date).length !== 0) throw new Error('Invalid date!')
+ //let day = date.getDate();
+//let dateNow = newDate(year,month,day)
+//if(date.getFullYear !==0){throw new Error('Invalid date!')}
+//if(!getMonth()){throw new Error('Invalid date!')}
+if(date.length === 0 || date == undefined){return 'Unable to determine the time of year!'}
 let year = date.getFullYear();
 let month = date.getMonth();
-let day = date.getDate();
-//let dateNow = newDate(year,month,day)
-if(!getMonth){return 'Invalid date!'}
-if(date.length <= 0 || date == undefined){return 'Unable to determine the time of year!'}
-
-if(month >=11 && month <=1){return 'winter'}
+//if (year<1970){throw new Error('Invalid date!')}
+if(month == 11 || month <=1){return 'winter'}
 if(month >=2 && month <=4){return 'spring'}
 if(month >=5 && month <=7){return 'summer'}
 if(month >=8 && month <=10){return 'autumn'}
