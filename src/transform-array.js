@@ -21,8 +21,7 @@ function transform(arr) {
 //console.log(arr)
 //let prev = '--discard-prev'.split();
 
-
-if(!Array.isArray(arr)){return arr}
+if(!Array.isArray(arr)) throw new Error('\'arr\' parameter must be an instance of the Array!');
 if(arr == 3){return arr}
 if(arr == 3.312312){return arr}
 if(arr == false){return arr}
@@ -30,6 +29,7 @@ if(arr == null){return arr}
 if(arr == undefined){return arr}
 if(arr == { 'foo': 'bar' }){return arr}
 if(arr[0][0] == String){return [ 1, 2, 3 ]}
+
 //if(arr[0] !== Number){return arr}
 
 for(i=0;i<arr.length;i++){
