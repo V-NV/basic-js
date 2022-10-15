@@ -69,6 +69,7 @@ if(arr2[i] == '--discard-next'){arr2.splice(i,1)}
 if(arr2[i] == '--discard-prev'){arr2.splice(i,1)}
 if(arr2[i] == '--double-prev'){arr2.splice(i,1)}
 if(arr2[i] == '--double-next'){arr2.splice(i,1)}
+if(arr2[i] == undefined){arr2.splice(i,1)}
 //if(arr2[i].incudes(undefined)){arr2.splice(i,1)}
 }
 
