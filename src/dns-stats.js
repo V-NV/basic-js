@@ -25,22 +25,18 @@ const { NotImplementedError } = require('../extensions/index.js');
 function getDNSStats(domains) {
   //throw new NotImplementedError('Not implemented');
   // remove line with error and write your code here
-  a = ['code.yandex.ru', 'music.yandex.ru', 'yandex.ru']
-  let first,telo,last = ''
-  let arr =[]
-  let arr2 =[]
-  for(i=0;i<a.length;i++){
-   arr.push(a[i].split('.'))
-    }
   
-  arr = arr.flat()
-  //arr2 = arr.sort()
-  //let obj = Object.assign({}, arr2);
-  
-  console.log(arr)
-  //console.log(arr2)
-  //console.log(obj)
-
+  const PodDomains = {};
+    domains.forEach(item =>{
+      const arr = item.split('.');
+      let domain = '';
+      for(let i = arr.length-1;i>=0;i--){
+          domain += `.${arr[i]}`;
+          PodDomains[domain] ?  PodDomains[domain]++ : PodDomains[domain] = 1;
+      };
+    });
+    return PodDomains;
+ 
 
 }
 
